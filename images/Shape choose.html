@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<!-- saved from url=(0076)file:///C:/wamp/www/Codemaster_Exercises/Martin/29March2016/chooseshape.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+  <title>Shape choose</title>
+    
+    <style>
+        body    {
+            font-family:sans-serif;
+            color:#222;
+        }
+        
+        h1  {
+            color:#11985d; 
+            padding:20px 0 0 40px;
+        }
+        
+         h2  {
+            color:#666; 
+             text-transform:uppercase;
+             font-size:15px;
+        }
+        
+        
+        ul  {
+            list-style: none;
+        }
+        
+        #wrapper    {
+            display:inline-block;
+            border-right:1px solid #bbb;
+            padding-right:40px;
+            margin-right:40px;
+        }
+        
+        #contents    {
+            display:inline-block;
+            vertical-align:top;
+        }
+       
+        button  {
+            font-size:10px;
+            color: #11985d;
+            letter-spacing:1px;
+            text-transform:uppercase;
+            margin-bottom:10px;
+            background-color: #effdf7;
+            border: 1px solid #11985d;
+            min-width:140px;
+            padding:5px; 
+          transition:background-color 0.5s,
+                        color 0.75s;
+        }
+        
+        button:hover    {
+            background-color: #11985d;
+            color:white;
+        }
+        
+        #sphere {
+            width:200px;
+            height:200px;
+            border:2px solid white;
+            position: absolute;
+            padding:30px;
+            visibility:hidden;
+
+        }
+        
+        input   {
+            padding:15px;
+            margin:10px 0;
+        }
+        
+        #cylinder {
+            width:200px;
+            height:200px;
+            border:2px solid white;
+            position: absolute;
+            padding:30px;
+            visibility:hidden;
+
+        }
+        
+        #cone {
+            width:200px;
+            height:200px;
+            border:2px solid white;
+            position: absolute;
+            padding:30px;
+            visibility:hidden;
+        }
+        
+        #pyramid {
+            width:200px;
+            height:200px;
+            border:2px solid white;
+            position: absolute;
+            padding:30px;
+            visibility:hidden;
+
+        }
+        
+        span    {
+            margin-top:10px;
+            color:#11985d;
+            font-size:12px;
+            line-height: 1.8;
+            letter-spacing:2px;
+        }
+        
+        #menu   {
+            visibility: hidden;
+        }
+        
+    
+    </style>
+      
+    <script>
+        
+        h1.onmouseover = function() {
+            document.getElementsById("menu").style.visibility = "visible";
+        }
+        
+        function hide() {
+            document.getElementById("sphere").style.visibility = "hidden";
+            document.getElementById("cone").style.visibility = "hidden";
+            document.getElementById("pyramid").style.visibility = "hidden";
+            document.getElementById("cylinder").style.visibility = "hidden";
+        };
+        
+        
+        function show(id) {
+            document.getElementById(id).
+            style.visibility = "visible";
+        };
+        
+        function hidethis(id) {
+            document.getElementById(id).
+            style.visibility = "hidden";
+        };
+        
+        
+        
+         function showCylinderVolume(){
+				//create some variables, and store our inputted values
+				var radius = document.getElementById("radius").value;
+				var tall = document.getElementById("tall").value;
+			
+				//the area of a rectangle is the base times height
+				var volume = Math.PI * Math.pow(radius, 2) * tall;
+			
+				//show the area variable inside whatever has id = results
+				document.getElementById("resultsCylinder").innerHTML = "Cylinder Volume: " + volume;
+    			};
+        
+        function showPyramidVolume(){
+				//create some variables, and store our inputted values
+				var pyramidWide = document.getElementById("pyramidWide").value;
+				var pyramidTall = document.getElementById("pyramidTall").value;
+            
+                var pyramidLong = document.getElementById("pyramidLong").value;
+			
+				//the area of a rectangle is the base times height
+				var volumePyramid = (pyramidLong * pyramidTall * pyramidWide) / 3;
+			
+				//show the area variable inside whatever has id = results
+				document.getElementById("resultsPyramid").innerHTML = "Pyramid Volume: " + volumePyramid;
+    			};
+        
+        function showSphereVolume(){
+				//create some variables, and store our inputted values
+				var radius3 = document.getElementById("radius3").value;
+			
+				//the area of a rectangle is the base times height
+				var sphereVolume = (4 / 3) * (Math.PI * Math.pow(radius3, 3));
+			
+				//show the area variable inside whatever has id = results
+				document.getElementById("resultsSphere").innerHTML = "Sphere Volume: " + sphereVolume;
+    			};
+        
+        function showConeVolume(){
+				//create some variables, and store our inputted values
+				var radius2 = document.getElementById("radius2").value;
+				var height2 = document.getElementById("height2").value;
+			
+				//the area of a rectangle is the base times height
+				var coneVolume = (Math.PI * Math.pow(radius2, 2)) * (height2 / 3);
+			
+				//show the area variable inside whatever has id = results
+				document.getElementById("resultsCone").innerHTML = "Cone Volume: " + coneVolume;
+			};
+        
+        function clearContent() {
+          /* var spanArray = document.getElementsByTagName('span')   {
+               for (var i = 0; i < spanArray.length; i++)   {
+                   spanArray[i].value = '';
+               }
+           } */
+            
+            var inputArray = document.getElementsByTagName('input')   {
+               for (var j = 0; j < spanArray.length; j++)   {
+                   spanArray[j].value = '';
+               }
+           } 
+           
+        } 
+       
+    </script>
+</head>
+
+    <body>
+        
+        <div id="wrapper" onmouseover="show(&#39;menu&#39;)" onmouseout="hidethis(&#39;menu&#39;)">
+        
+        <h1>Pick a Shape!</h1>
+        
+        <div id="menu">
+    
+        <ul>
+            <li><button id="sphereButton" onmousedown="hide()" onmouseup="show(&#39;sphere&#39;)">Sphere</button></li>
+            
+            <li><button id="coneButton" onmousedown="hide()" onmouseup="show(&#39;cone&#39;)">Cone</button></li>
+            
+            <li><button id="cylinderButton" onmousedown="hide()" onmouseup="show(&#39;cylinder&#39;)">Cylinder</button></li>
+            
+            <li><button id="cylinderPyramid" onmousedown="hide()" onmouseup="show(&#39;pyramid&#39;)">Pyramid</button></li>     
+                   
+        </ul>
+            
+        </div>
+            
+        </div>
+        
+        <div id="contents">
+        
+        
+        <div id="sphere" class="content">
+            <h2>Sphere!</h2>
+            <input type="number" id="radius3" placeholder="radius" onkeyup="showSphereVolume()">
+			
+            <br>
+			
+			<span id="resultsSphere"></span> 
+            
+        </div>
+        
+        <div id="cone" class="content">
+            <h2>Cone!</h2>
+            
+            <input type="number" id="radius2" placeholder="radius">
+			<input type="number" id="height2" placeholder="height" onkeyup="showConeVolume()">
+            <br>
+			
+			<span id="resultsCone"></span>
+        </div>
+            
+         <div id="pyramid" class="content">
+             <h2>Pyramid!</h2>
+            
+            <input type="number" id="pyramidWide" placeholder="Width">
+            
+			<input type="number" id="pyramidLong" placeholder="length">
+             
+             <input type="number" id="pyramidTall" placeholder="height" onkeyup="showPyramidVolume()">
+            <br>
+			
+			<span id="resultsPyramid"></span>
+             
+        </div>
+        
+        <div id="cylinder" class="content">
+            <h2>Cylinder!</h2>
+            
+            <input type="number" id="radius" placeholder="radius">
+            
+			<input type="number" id="tall" placeholder="height" onkeyup="showCylinderVolume()">
+            <br>
+			
+			<span id="resultsCylinder"></span>         
+        </div>
+                
+        </div>
+
+    
+    
+    
+
+</body></html>
