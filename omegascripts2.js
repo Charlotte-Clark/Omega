@@ -1,33 +1,25 @@
+window.onscroll = function() {myFunction()};
 
+function myFunction() {
+    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+        document.getElementById("main").className = "fixed";
+    } else {
+        document.getElementById("main").className = "";
+    }
+}
 
-/*
-var profilePics = document.getElementsByClassName("quarter-profiles");
-var profileContent = document.getElementsByClassName("profile-content");
+/*function window_onload() {
+  window.addEventListener("scroll",navbarFixed);
+}
 
-for (var i = 0; i < profilePics.length; i++)    {
-        
-    var profilePic = profilePics[i];
-    
-    profilePic.onclick = function() {
+var nav_scrolled = 200;
 
-        for (var i = 0; i < profilePics.length; i++) {
-            profilePics[i].classList.remove("active");
-        }
-
-        this.className += " active";
-        for (var i = 0; i < profileContent.length; i++ )    {
-            profileContent[i].classList.remove("active");
-        }
-
-        var targetId = this.getAttribute('data-content-id');
-
-        var targetContent = document.getElementById(targetId);
-
-        targetContent.className += ' active';
+function navbarFixed()  {
+    var offset = window.scrollY;
+    if (offset > nav_scrolled)  { 
+    document.getElementsById("main").className = "scroll";
     }
 }*/
-
-/*var profilePairs = ["images/harold.jpg", "images/jill.jpg", "images/bob.jpg", "images/jane.jpg", "images/zebra.jpg"];*/
 
 
 var profilePairs = [["images/harold.jpg", "harold"], ["images/jill.jpg", "jill"], ["images/bob.jpg", "bob"], ["images/jane.jpg", "jane"], ["images/zebra.jpg", "zebra"]];

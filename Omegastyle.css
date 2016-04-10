@@ -374,7 +374,6 @@ nav#main s li:hover  {
     color:#fff;
 }
 
-
 .profile-content    {
     display:none;
 }
@@ -654,14 +653,14 @@ form {
 
 }
 
-.scroll {
+.fixed {
     position:fixed;
     top:0;
     z-index: 9999;
     width:100%;
 }
 
-.scroll .full-width, .scroll .nav-main-logo {
+.fixed .full-width, .scroll .nav-main-logo {
     max-width:960px;
 }
 
