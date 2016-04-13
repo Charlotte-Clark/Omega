@@ -1,14 +1,15 @@
-window.onscroll = function() {myFunction()};
+/*window.onscroll = function() {
 
-function myFunction() {
+
     if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
         document.getElementById("main").className = "fixed";
     } else {
         document.getElementById("main").className = "";
     }
-}
 
-/*function window_onload() {
+};
+
+function window_onload() {
   window.addEventListener("scroll",navbarFixed);
 }
 
@@ -21,27 +22,41 @@ function navbarFixed()  {
     }
 }*/
 
+    
 
-var profilePairs = [["images/harold.jpg", "harold"], ["images/jill.jpg", "jill"], ["images/bob.jpg", "bob"], ["images/jane.jpg", "jane"], ["images/zebra.jpg", "zebra"]];
+
+var profilePairs = [["images/harold.jpg", "content1"], ["images/jill.jpg", "content2"], ["images/bob.jpg", "content3"], ["images/jane.jpg", "content4"], ["images/zebra.jpg", "content5"]];
 
 var profilePics = document.getElementsByClassName("quarter-profiles-pic");
 
 function assignPics()   {
 for (var i = 0; i <= 3; i++)    {
-   profilePics[i].src = profilePairs[i][0];    
+    var id = profilePairs[i][1];
+    var elem = profilePics[i];
+    console.log(id);
+    elem.src = profilePairs[i][0];
+    elem.setAttribute('data-content-id', id);
     }  
 }
 
 assignPics();
 
+function profilePairsUnshift()   {
+    profilePairs.unshift(profilePairs.pop());
+    assignPics();    
+}
+
 function profilePairsShift()   {
     profilePairs.push(profilePairs.shift());
     assignPics();
-}
-
-function profilePairsUnshift()   {
-    profilePairs.unshift(profilePairs.pop());
-    assignPics();
+    
+    // find the div.quarter-profiles with .active class
+    var activePic = document.querySelector('div.quarter-profiles.active').previousElementSibling;
+    
+    console.log(activePic);
+    // find the sibling element before that element
+    activePic.click();
+    // programmatically trigger the 'onclick' event on that element
 }
 
 
@@ -97,12 +112,46 @@ var circleIcons = document.getElementsByClassName("circle");
             (function() {
                 var parallaxImages = document.getElementsByClassName("parallax-bg");
                 
+                
+
+                var fixedNav = document.getElementById("main");
+
+
+                function fixNav() {
+                    if (document.documentElement.scrollTop || document.body.scrollTop > 400)   {
+                        fixedNav.className += " fixed";
+                    }   else    {
+                        fixedNav.className = "";
+                    } 
+                }
+                
             window.onscroll = function()   {
+                var w = window,
+                    d = document,
+                    e = d.documentElement,
+                    g = d.getElementsByTagName('body')[0],
+                    x = w.innerWidth || e.clientWidth || g.clientWidth,
+                    y = w.innerHeight|| e.clientHeight|| g.clientHeight;
+                
+                var windowBasePos = window.pageYOffset + window.innerHeight;
+                
                 for (var i = 0; i < parallaxImages.length; i++){
-                var offset = window.pageYOffset;
-                var parallaxImage = parallaxImages[i];
-                parallaxImage.style.backgroundPosition = "50% " + (offset * 0.2) + "px";
+                    var parallaxImage = parallaxImages[i];
+                    
+                    var elemOffset = parallaxImage.offsetTop - windowBasePos;
+                    
+                    console.log(windowBasePos, parallaxImage.offsetTop, elemOffset);
+                    
+                    parallaxImage.style.backgroundPositionY = "" + (20 + elemOffset * 0.2) + "px";
+                }
+                
+                fixNav();
             }
-            }
+            
+            fixNav();
         })();
             
+
+function loadSkills()   {
+    var width
+}

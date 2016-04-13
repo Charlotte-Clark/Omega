@@ -65,6 +65,66 @@ body    {
     display:none;
 }
 
+a   {
+    text-decoration:none;
+}
+
+p   {
+    font-size:11px;
+    font-weight:400;
+    color:#444;
+    line-height: 1.4;
+    letter-spacing: 1px;
+    margin-bottom:5px;
+}
+
+h1,h2,h3, h4  {
+    font-weight: 900;
+    color:#222;
+    margin-bottom:15px;
+}
+
+h1  {
+    color:white;
+    text-transform:uppercase;
+    text-align:center;
+    margin:10px auto;
+    font-size:50px;
+    letter-spacing:2px;
+    line-height:0.8;
+}
+
+h2  {
+    font-size:14px;
+    font-weight:800;
+    padding-bottom: 10px;
+    position:relative;
+    display: inline-block;    
+}
+
+h2 a {
+    color:#222;    
+}
+
+h4  {
+    color:white;
+    margin-bottom:4px;
+    font-weight:400;
+}
+
+
+h2:after  {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 1px;
+    bottom: -5px;
+    border-bottom: 1px solid grey;
+    left:0;    
+
+
+}
+
 /*************** HEADER ********************/
 
 #banner-main    {
@@ -82,6 +142,18 @@ body    {
     min-height:400px;
 }
 
+.header-text    {
+    text-transform:uppercase;
+    color:white;
+    text-align:center;
+    font-weight:100;
+    font-size:22px;
+    letter-spacing:3px;
+    margin:0;
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+    line-height:1;
+}
 
 .header-content {
     margin:0 auto;
@@ -165,11 +237,25 @@ nav#main s li:hover  {
     letter-spacing:3px;
 }
 
+.fixed  {
+    position:fixed;
+}
+
 /*************** MAIN ********************/
+
+
+.intro  {
+    font-weight:100;
+    font-size:19px;
+    margin-top:10px;
+    margin-bottom:10px;
+    color:#999;
+}
+
 
 .phone  {
     background-image: url(images/phone.jpg);
-    background-position:right top;
+    background-position-x:right;
     background-size: 300px;
     background-repeat: no-repeat;
     margin-top:50px;
@@ -178,6 +264,7 @@ nav#main s li:hover  {
     overflow: hidden;
     zoom:1;
     background-size:200px;
+    transition:all 0.3s;
 }
 
 .grey   {
@@ -198,6 +285,38 @@ nav#main s li:hover  {
     text-align:center;
     padding:0 5px;
     vertical-align:top;
+}
+
+.quarter h2  {
+    font-size:0.8em;
+    text-transform: uppercase;
+    padding-bottom: 10px;
+    display: block;
+    margin:20px 0 5px 0;
+    width:100;
+    
+}
+
+.quarter h2:after  {
+    content: "";
+    width: 40px;
+    height: 2px;
+    bottom: -5px;
+    border-bottom: 1px solid #4ea2cb;
+    display: block;
+    position:static;
+    margin:15px auto 0;
+    
+}
+
+.quarter p  {
+    line-height:1.2;
+}
+
+.smallgreen     {
+    color:#8cc739;
+    font-weight:400;
+    margin-bottom:10px;
 }
 
 
@@ -524,10 +643,28 @@ footer .social-media   {
 
 .logos li   {
     display:inline-block;
-    background-color:#333;
-    width:100px;
+    width:120px;
     height:30px;
+    margin-right:20px;
 }
+
+.logos li img   {
+    width: 100px;
+}
+
+.test    {
+    background-image:url(images/technology.jpg);
+    background-repeat:no-repeat;
+    background-size:cover;
+    min-height: 200px;
+    overflow: hidden;
+    zoom:1;
+    background-position:fixed;
+}
+
+
+
+/*************** FOOTER ******************/
 
 footer ul   {
     display:inline;
@@ -593,6 +730,39 @@ footer  p   {
 .green-overlay:hover    {
     background-color:rgba(35,250,20, 0.5);
 }*/
+/*************************** FEATURES ********************************/
+
+.large  {
+    font-size:45px;
+    font-weight:100;
+}
+
+.medium  {
+    font-size:30px;
+    font-weight:100;
+}
+
+.feature-title  {
+    font-size:18px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+.features   {
+    text-align:center;
+}
+
+.green-text  {
+    color:#8cc739;
+}
+
+.darkgreen-text  {
+    color:#5e8526;
+}
+
+.white-text-right {
+    color:white;
+    text-align:right;
+}
 
 label, placeholder   {
     font-size:11px;
@@ -680,6 +850,7 @@ form {
                         max-width:700px;
                     
                     }
+                            
 
                     .container  {
                         max-width:700px;
@@ -714,6 +885,10 @@ form {
                     column-count: 1;
                 }
                 
+                .sixtypercent   {
+                    width:100%;
+                }
+                
                 input {
                     width:60%;
                 }
@@ -721,9 +896,9 @@ form {
                 textarea {
                     width:80%;
                 }
-                
-              .hide {
-                    display:none;
+                   
+                .phone  {
+                    background-image:none;
                 }
                 
                 
@@ -813,10 +988,11 @@ form {
                     nav.full-width     {
                         padding:0;
                     }
-
-                    .phone  {
-                        background:none;
+                
+                      .phone  {
+                        background-image: none;
                     }
+                    
                 
                     .sixtypercent  {
                         width:100%;
@@ -880,6 +1056,15 @@ form {
                     .hide {
                         display:none;
                     }
+                            
+                h1  {
+                    font-size:30px;
+                }
+                
+                .header-text    {
+                    font-size:16px;
+                }
+                
 
                     form {
                         -webkit-column-count: 1; /* Chrome, Safari, Opera */
