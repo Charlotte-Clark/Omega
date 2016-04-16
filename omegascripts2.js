@@ -35,7 +35,7 @@ for (var i = 0; i <= 3; i++)    {
     var elem = profilePics[i];
     console.log(id);
     elem.src = profilePairs[i][0];
-    elem.setAttribute('data-content-id', id);
+    elem.setAttribute('data-content-id', id); //SETS ID, BUT DOESN'T WORK WITH ONCLICK....
     }  
 }
 
@@ -55,12 +55,12 @@ function profilePairsShift()   {
     
     console.log(activePic);
     // find the sibling element before that element
-    activePic.click();
+    activePic.click(); //NOT WORKING
     // programmatically trigger the 'onclick' event on that element
 }
 
 
-
+// PICS ACTIVE / NOT
 var picDivs = document.getElementsByClassName("quarter-profiles");
 var profileContent = document.getElementsByClassName("profile-content");
                                               
@@ -86,8 +86,13 @@ for (var i = 0; i < picDivs.length; i++)    {
         var targetContent = document.getElementById(targetId);
 
         targetContent.className += ' active';
+        
+       //   NOT WORKING YET initProgressBars();
     }
 }
+
+
+//CIRCLES ACTIVE / NOT
 
 var circleIcons = document.getElementsByClassName("circle");
 
@@ -111,11 +116,8 @@ var circleIcons = document.getElementsByClassName("circle");
             
             (function() {
                 var parallaxImages = document.getElementsByClassName("parallax-bg");
-                
-                
 
                 var fixedNav = document.getElementById("main");
-
 
                 function fixNav() {
                     if (document.documentElement.scrollTop || document.body.scrollTop > 400)   {
@@ -126,13 +128,7 @@ var circleIcons = document.getElementsByClassName("circle");
                 }
                 
             window.onscroll = function()   {
-                var w = window,
-                    d = document,
-                    e = d.documentElement,
-                    g = d.getElementsByTagName('body')[0],
-                    x = w.innerWidth || e.clientWidth || g.clientWidth,
-                    y = w.innerHeight|| e.clientHeight|| g.clientHeight;
-                
+              
                 var windowBasePos = window.pageYOffset + window.innerHeight;
                 
                 for (var i = 0; i < parallaxImages.length; i++){
@@ -140,7 +136,7 @@ var circleIcons = document.getElementsByClassName("circle");
                     
                     var elemOffset = parallaxImage.offsetTop - windowBasePos;
                     
-                    console.log(windowBasePos, parallaxImage.offsetTop, elemOffset);
+                   // console.log(windowBasePos, parallaxImage.offsetTop, elemOffset);
                     
                     parallaxImage.style.backgroundPositionY = "" + (20 + elemOffset * 0.2) + "px";
                 }
@@ -150,8 +146,43 @@ var circleIcons = document.getElementsByClassName("circle");
             
             fixNav();
         })();
+
+
+
+// PROGRESS BARS
             
 
-function loadSkills()   {
-    var width
-}
+function initProgressBars()   {
+    var progressContainer = document.getElementsByClassName("progressContainer")[0];
+    var progressBars = document.getElementsByClassName("progressBar");
+    
+    for (var i = 0; i < progressBars.length; i++)    {
+       var percent = progressBars[i].getAttribute("data-skill-level");
+        load(progressBars[i], percent)
+    }
+    var screenScroll = window.pageYOffset;
+    var containerOffset =  progressContainer.offsetTop;
+            console.log(screenScroll);
+            console.log(containerOffset);
+    
+    
+    function load(progressBar, percent)  {
+    
+            if (true)  {
+                var id = setInterval(frame, 15);
+                var progressWidth = 1;
+                function frame() {
+                    if (progressWidth >= percent)   {
+                        clearInterval(id);           
+                    }
+                    else    {
+                        progressWidth++;
+                        progressBar.style.width = progressWidth + "%";
+                    }
+                }
+            }
+    }
+    
+ 
+} 
+

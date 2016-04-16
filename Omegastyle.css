@@ -548,6 +548,13 @@ footer .social-media   {
     background-color:#8cc739;
 }
 
+.progressBar  {
+    width:1%;
+    height:100%;
+    background-color:#8cc739;
+    transition:all 0.3s;
+}
+
 .filler-50  {
     width:50%;
     height:100%;
