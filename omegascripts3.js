@@ -28,14 +28,17 @@ function navbarFixed()  {
 var profilePairs = [["images/harold.jpg", "content1"], ["images/jill.jpg", "content2"], ["images/bob.jpg", "content3"], ["images/jane.jpg", "content4"], ["images/zebra.jpg", "content5"]];
 
 var profilePics = document.getElementsByClassName("quarter-profiles-pic");
+var picDivs = document.getElementsByClassName("quarter-profiles");
 
 function assignPics()   {
 for (var i = 0; i <= 3; i++)    {
     var id = profilePairs[i][1];
-    var elem = profilePics[i];
-    console.log(id);
-    elem.src = profilePairs[i][0];
-  //  elem.setAttribute('data-content-id', id); //SETS ID, BUT DOESN'T WORK WITH ONCLICK....
+    var eachPic = profilePics[i];
+    var eachDiv = picDivs[i];
+   // console.log(id);
+    eachPic.src = profilePairs[i][0];
+    
+   eachDiv.setAttribute('data-content-id', id); 
     }  
 }
 
@@ -43,25 +46,32 @@ assignPics();
 
 function profilePairsUnshift()   {
     profilePairs.unshift(profilePairs.pop());
-    assignPics();    
+    assignPics();
+    initProgressBars();
+    
 }
 
 function profilePairsShift()   {
-    profilePairs.push(profilePairs.shift());
+    var activePic = document.querySelector('div.quarter-profiles.active');
+    activePic.click();
+    profilePairs.push(profilePairs.shift());    
     assignPics();
+    initProgressBars();
     
     // find the div.quarter-profiles with .active class
-    var activePic = document.querySelector('quarter-profiles active').previousElementSibling;
+   
     
-    console.log(activePic);
+    //var previousPic = activePic.previousElementSibling;
+    
+    //console.log(activePic);
     // find the sibling element before that element
-    activePic.click(); //NOT WORKING
+    //NOT WORKING
     // programmatically trigger the 'onclick' event on that element
 }
 
 
 // PICS ACTIVE / NOT
-var picDivs = document.getElementsByClassName("quarter-profiles");
+
 var profileContent = document.getElementsByClassName("profile-content");
                                               
 for (var i = 0; i < picDivs.length; i++)    {
@@ -87,7 +97,7 @@ for (var i = 0; i < picDivs.length; i++)    {
 
         targetContent.className += ' active';
         
-       //   NOT WORKING YET initProgressBars();
+     
     }
 }
 
@@ -162,8 +172,8 @@ function initProgressBars()   {
     }
     var screenScroll = window.pageYOffset;
     var containerOffset =  progressContainer.offsetTop;
-            console.log(screenScroll);
-            console.log(containerOffset);
+          //  console.log(screenScroll);
+        //    console.log(containerOffset);
     
     
     function load(progressBar, percent)  {

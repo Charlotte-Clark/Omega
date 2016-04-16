@@ -21,14 +21,16 @@
                 <div class = "overlay">
                     
                     <div class = "header-content">
-                        <div class = "logo"><img src = "images/circle.png"/></div>
+                        <div class = "logo"><img src = "images/logo.png"/></div>
 
                         <p class = header-text>Some text before</p>
                         <h1>Breathtaking Apps</h1>
 
                         <p class = header-text>Some longer waffling waffling text after</p>
-
+                        
                         <div class = "button">Sign me up!</div>
+                        
+                        <div class = "mousedown hide"><a href = "#home"><img src = "images/mousedown.png"/></a></div>
 
                     </div>
                 
@@ -37,14 +39,14 @@
             </div>
                 
             
-            <nav id = "main">
+            <nav id = "main" class = "fixed">
                 
                 <nav class = "full-width">
                 
-                <nav class = "twitter">
+                <nav class = "logo">
                 
                 <ul>
-                    <li><a href = "#home" class = "active">Home</a></li>
+                    <li><a href = "#home">Home</a></li>
                     <li><a href = "#whatwedo">What we do</a></li>
                     <li class = "hide"><a href = "#team">Meet the team</a></li>
                     <li><a href = "#gallery">Gallery</a></li>
@@ -67,8 +69,8 @@
             
             <div class = "phone parallax-bg">
             
-            <div class = "sixtypercent">
-                <h2><a name = "home">Heading</a></h2>
+            <div class = "sixtypercent margin-top-60x">
+                <h2><a name = "home">We are awesome</a></h2>
                 <p class = "intro green-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ultricies quam non mi fringilla, eu iaculis neque dictum.</p>
                 <p> Morbi tempor nibh a ligula auctor tempus. Maecenas erat nunc, ullamcorper et sodales at, aliquet vel mauris. Fusce sodales eget risus nec dapibus. Vestibulum consequat et massa et luctus. In quam dui, blandit vel placerat at, consequat et leo. Praesent sit amet ex nisi</p>
                 
@@ -85,7 +87,7 @@
             <section class = "container">
                 
                 <div class = "sixtypercent">
-                    <h2><a href = "whatwedo">What we do</a></h2>
+                    <h2><a href name = "whatwedo">What we do</a></h2>
                     
                     <p class = "intro">Dolor sit amet, consectetur adipiscing elit. Aliquam ultricies quam non mi fringilla, eu iaculis neque dictum.</p>
                 
@@ -172,7 +174,7 @@
         </section>
         
         <!--ABOUT-->
-        <section class = "container hide">
+        <section class = "container hide p-b-0">
         
             <H2><a name = "team">Meet the team</a></H2>
             
@@ -183,22 +185,29 @@
                 <div class = "profiles-arrow" onClick= "profilePairsUnshift();">
                  <i class="fa fa-arrow-left"></i>
                 </div>
-               
-                <div class = "quarter-profiles active">
-                    <img class = "quarter-profiles-pic" src="images/zebra.jpg"/>
-                 </div>
-                
-                <div class = "quarter-profiles">
-                    <img class = "quarter-profiles-pic" src="images/zebra.jpg"/>
-                </div>
-                
-                <div class = "quarter-profiles">
-                    <img class = "quarter-profiles-pic" src="images/zebra.jpg"/>
-                 </div>
-                
-                <div class = "quarter-profiles">
-                    <img class = "quarter-profiles-pic" src="images/zebra.jpg"/>
-                </div>
+                    <div class = "triangle-after">
+                        <div class = "quarter-profiles active">
+                            <img class = "quarter-profiles-pic" src="images/zebra.jpg"/>
+                         </div>
+                    </div>
+
+                <div class = "triangle-after">
+                        <div class = "quarter-profiles">
+                            <img class = "quarter-profiles-pic" src="images/zebra.jpg"/>
+                        </div>
+                    </div>
+
+                    <div class = "triangle-after">
+                        <div class = "quarter-profiles">
+                            <img class = "quarter-profiles-pic" src="images/zebra.jpg"/>
+                         </div>
+                        </div>
+
+                    <div class = "triangle-after">
+                        <div class = "quarter-profiles">
+                            <img class = "quarter-profiles-pic" src="images/zebra.jpg"/>
+                        </div>
+                        </div>
 
                     
                 <div class = "profiles-arrow"  onClick= "profilePairsShift();">
@@ -208,10 +217,8 @@
             </section>
             
         </section>
-        
-        <div class = "container-nopadding triangle hide"><img src="images/triangle-xxl.png"/></div>
                         
-        <section class = "darkpattern progressContainer hide" onmouseover="initProgressBars();">
+        <section class = "darkpattern progressContainer hide">
                 
                 <section class = "container">
                     <div class = "profile-content active" id="content1">
@@ -302,28 +309,28 @@
                                     Wordpress 80%</p>
 
                                 <div class = "runner">
-                                    <div class = "filler-80"></div>
+                                   <div class = "progressBar" data-skill-level="90"></div>
                                 </div>
 
                                 <p class = "white-text-right">
                                     HTML 80%</p>
 
                                 <div class = "runner">
-                                    <div class = "filler-80"></div>
+                                   <div class = "progressBar" data-skill-level="70"></div>
                                 </div>
 
                                  <p class = "white-text-right">
                                     Something else 50%</p>
 
                                 <div class = "runner">
-                                    <div class = "filler-50"></div>
+                                   <div class = "progressBar" data-skill-level="70"></div>
                                 </div>
 
                                  <p class = "white-text-right">
                                     Not so good at this 30%</p>
 
                                  <div class = "runner">
-                                    <div class = "filler-30"></div>
+                                    <div class = "progressBar" data-skill-level="60"></div>
                                 </div>
 
 
@@ -360,28 +367,28 @@
                                     Wordpress 80%</p>
 
                                 <div class = "runner">
-                                    <div class = "filler-80"></div>
+                                    <div class = "progressBar" data-skill-level="90"></div>
                                 </div>
 
                                 <p class = "white-text-right">
                                     HTML 80%</p>
 
                                 <div class = "runner">
-                                    <div class = "filler-80"></div>
+                                    <div class = "progressBar" data-skill-level="80"></div>
                                 </div>
 
                                  <p class = "white-text-right">
                                     Something else 50%</p>
 
                                 <div class = "runner">
-                                    <div class = "filler-50"></div>
+                                    <div class = "progressBar" data-skill-level="50"></div>
                                 </div>
 
                                  <p class = "white-text-right">
                                     Not so good at this 30%</p>
 
                                  <div class = "runner">
-                                    <div class = "filler-30"></div>
+                                   <div class = "progressBar" data-skill-level="40"></div>
                                 </div>
 
 
@@ -418,28 +425,28 @@
                                     Wordpress 80%</p>
 
                                 <div class = "runner">
-                                    <div class = "filler-80"></div>
+                                   <div class = "progressBar" data-skill-level="100"></div>
                                 </div>
 
                                 <p class = "white-text-right">
                                     HTML 80%</p>
 
                                 <div class = "runner">
-                                    <div class = "filler-80"></div>
+                                   <div class = "progressBar" data-skill-level="90"></div>
                                 </div>
 
                                  <p class = "white-text-right">
                                     Something else 50%</p>
 
                                 <div class = "runner">
-                                    <div class = "filler-50"></div>
+                                    <div class = "progressBar" data-skill-level="70"></div>
                                 </div>
 
                                  <p class = "white-text-right">
                                     Not so good at this 30%</p>
 
                                  <div class = "runner">
-                                    <div class = "filler-30"></div>
+                                   <div class = "progressBar" data-skill-level="70"></div>
                                 </div>
 
 
@@ -476,28 +483,28 @@
                                     Wordpress 80%</p>
 
                                 <div class = "runner">
-                                    <div class = "filler-80"></div>
+                                    <div class = "progressBar" data-skill-level="90"></div>
                                 </div>
 
                                 <p class = "white-text-right">
                                     HTML 80%</p>
 
                                 <div class = "runner">
-                                    <div class = "filler-80"></div>
+                                    <div class = "progressBar" data-skill-level="70"></div>
                                 </div>
 
                                  <p class = "white-text-right">
                                     Something else 50%</p>
 
                                 <div class = "runner">
-                                    <div class = "filler-50"></div>
+                                    <div class = "progressBar" data-skill-level="60"></div>
                                 </div>
 
                                  <p class = "white-text-right">
                                     Not so good at this 30%</p>
 
                                  <div class = "runner">
-                                    <div class = "filler-30"></div>
+                                   <div class = "progressBar" data-skill-level="60"></div>
                                 </div>
 
 
@@ -534,28 +541,28 @@
                                     Wordpress 80%</p>
 
                                 <div class = "runner">
-                                    <div class = "filler-80"></div>
+                                    <div class = "progressBar" data-skill-level="80"></div>
                                 </div>
 
                                 <p class = "white-text-right">
                                     HTML 80%</p>
 
                                 <div class = "runner">
-                                    <div class = "filler-80"></div>
+                                    <div class = "progressBar" data-skill-level="70"></div>
                                 </div>
 
                                  <p class = "white-text-right">
                                     Something else 50%</p>
 
                                 <div class = "runner">
-                                    <div class = "filler-50"></div>
+                                    <div class = "progressBar" data-skill-level="60"></div>
                                 </div>
 
                                  <p class = "white-text-right">
                                     Not so good at this 30%</p>
 
                                  <div class = "runner">
-                                    <div class = "filler-30"></div>
+                                    <div class = "progressBar" data-skill-level="50"></div>
                                 </div>
 
 
@@ -592,7 +599,7 @@
         
                 <div class = "gallery">
                 
-                    <div class = "cell"> 
+                    <div class = "cell invis-md"> 
                         <img src ="images/image1.jpg"/>
                             <div class = "caption">
                                 <h5>A heading! What a great idea</h5>
@@ -632,7 +639,7 @@
                             </div>                       
                     </div>
 
-                    <div class = "cell">
+                    <div class = "cell invis-md">
                          <img src ="images/image6.jpg"/>
                             <div class = "caption">
                                 <h5>Check this out</h5>
@@ -640,7 +647,7 @@
                             </div>
                         </div>
 
-                    <div class = "cell hide">
+                    <div class = "cell  invis-md hide">
                          <img src ="images/image7.jpg"/>
                         <div class = "caption">
                             <h5>Oops!</h5>
@@ -680,7 +687,7 @@
                             </div>
                     </div>
                     
-                    <div class = "cell hide">
+                    <div class = "cell invis-md hide">
                         <img src ="images/image2.jpg"/>
                             <div class = "caption">
                                 <h5>Wow, last one</h5>
@@ -867,7 +874,7 @@
 
         </footer>
  
-    <script type="text/javascript" src = "omegascripts2.js"></script>
+    <script type="text/javascript" src = "omegascripts3.js"></script>
 
     </body>
 </html>
