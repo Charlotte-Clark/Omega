@@ -1,29 +1,4 @@
-/*window.onscroll = function() {
-
-
-    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-        document.getElementById("main").className = "fixed";
-    } else {
-        document.getElementById("main").className = "";
-    }
-
-};
-
-function window_onload() {
-  window.addEventListener("scroll",navbarFixed);
-}
-
-var nav_scrolled = 200;
-
-function navbarFixed()  {
-    var offset = window.scrollY;
-    if (offset > nav_scrolled)  { 
-    document.getElementsById("main").className = "scroll";
-    }
-}*/
-
-    
-
+//***************************ASSIGN PROFILE PICS & CONTENT IDS FROM ARRAY************//
 
 var profilePairs = [["images/harold.jpg", "content1"], ["images/jill.jpg", "content2"], ["images/bob.jpg", "content3"], ["images/jane.jpg", "content4"], ["images/zebra.jpg", "content5"]];
 
@@ -32,56 +7,75 @@ var picDivs = document.getElementsByClassName("quarter-profiles");
 
 function assignPics()   {
 for (var i = 0; i <= 3; i++)    {
+   
     var id = profilePairs[i][1];
     var eachPic = profilePics[i];
     var eachDiv = picDivs[i];
-   // console.log(id);
+    
     eachPic.src = profilePairs[i][0];
     
-   eachDiv.setAttribute('data-content-id', id); 
+    eachDiv.setAttribute('data-content-id', id); 
+    
     }  
 }
 
 assignPics();
 
+//******************** ARROWS - SHIFT/UNHIFT PROFILEPAIRS ARRAY ******************8
+
+var profileArrows = document.getElementsByClassName("profiles-arrow");
+
 function profilePairsUnshift()   {
     profilePairs.unshift(profilePairs.pop());
     assignPics();
-    initProgressBars();
+    var activeTriangle = document.querySelector('.triangle-after.active');
+
+    var nextProfile = activeTriangle.nextElementSibling;
     
-}
+    nextProfile.click();
+    
+    initProgressBars();  
+
+    }
 
 function profilePairsShift()   {
-    var activePic = document.querySelector('div.quarter-profiles.active');
-    activePic.click();
+    
     profilePairs.push(profilePairs.shift());    
     assignPics();
+    var activeTriangle = document.querySelector('.triangle-after.active');
+    
+ //   var node = activeTriangle.parentElement.children;
+ //   console.log(node.indexOf(activeTriangle));
+    
+ //   if (node.indexOf(activeTriangle) > 0)   {
+    
+    var previousProfile = activeTriangle.previousElementSibling;
+    previousProfile.click();
+
+  //  }   else {};
+  
     initProgressBars();
-    
-    // find the div.quarter-profiles with .active class
-   
-    
-    //var previousPic = activePic.previousElementSibling;
-    
-    //console.log(activePic);
-    // find the sibling element before that element
-    //NOT WORKING
-    // programmatically trigger the 'onclick' event on that element
 }
 
 
-// PICS ACTIVE / NOT
+profileArrows[0].onclick = profilePairsUnshift;
+
+profileArrows[1].onclick = profilePairsShift;
+
+
+//************************ PICS ACTIVE / NOT********************************
 
 var profileContent = document.getElementsByClassName("profile-content");
+var triangles = document.getElementsByClassName("triangle-after")
                                               
 for (var i = 0; i < picDivs.length; i++)    {
         
-    var selectedPic = picDivs[i];
+    var selectedPic = triangles[i];
     
     selectedPic.onclick = function() {
 
         for (var j = 0; j < picDivs.length; j++) {
-            picDivs[j].classList.remove("active");
+            triangles[j].classList.remove("active");
         }
 
         this.className += " active";
@@ -90,8 +84,10 @@ for (var i = 0; i < picDivs.length; i++)    {
         
                 profileContent[k].classList.remove("active");
         }
-        
-        var targetId = this.getAttribute('data-content-id');
+
+        var target = this.childNodes[1];
+
+        var targetId = target.getAttribute('data-content-id');
         
         var targetContent = document.getElementById(targetId);
 
@@ -102,7 +98,41 @@ for (var i = 0; i < picDivs.length; i++)    {
 }
 
 
-//CIRCLES ACTIVE / NOT
+//******************LIGHTBOX*****************************//
+
+var lightboxCover = document.getElementById('cover');
+var close = document.querySelector("#lightbox i")
+
+lightboxCover.onclick = function()   {
+    this.classList.add("hide");
+}
+
+close.onclick = function()  {
+    lightbox.classList.add("hide");
+    lightboxCover.classList.add("hide");
+}
+
+var picHover = document.getElementsByClassName("wrapper");
+var lightbox = document.getElementById("lightbox");
+var lightboxImage = document.querySelector("#lightbox img");
+
+for (var j = 0; j < picHover.length; j++)   {
+    
+    activeHover = picHover[j];
+    
+    activeHover.onclick = function()    {
+        
+        lightboxCover.classList.remove("hide");
+        var image = this.parentNode.childNodes[3];
+        var imageSrc = image.src;
+        lightboxImage.src = imageSrc;
+        lightbox.classList.remove("hide");
+        
+    }
+}
+
+
+//*****************  CIRCLES ACTIVE / NOT****************
 
 var circleIcons = document.getElementsByClassName("circle");
 
@@ -120,7 +150,7 @@ var circleIcons = document.getElementsByClassName("circle");
             }
        
 
-/********* Parallax*********/
+/********* PARALLAX & FIXED NAV*********/
 
  
             
@@ -159,7 +189,7 @@ var circleIcons = document.getElementsByClassName("circle");
 
 
 
-// PROGRESS BARS
+//******************* PROGRESS BARS*****************
             
 
 function initProgressBars()   {

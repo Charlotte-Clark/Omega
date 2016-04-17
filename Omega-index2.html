@@ -182,11 +182,11 @@
             
             <section class = "quarters">
                 
-                <div class = "profiles-arrow" onClick= "profilePairsUnshift();">
+                <div class = "profiles-arrow">
                  <i class="fa fa-arrow-left"></i>
                 </div>
-                    <div class = "triangle-after">
-                        <div class = "quarter-profiles active">
+                    <div class = "triangle-after active">
+                        <div class = "quarter-profiles">
                             <img class = "quarter-profiles-pic" src="images/zebra.jpg"/>
                          </div>
                     </div>
@@ -210,7 +210,7 @@
                         </div>
 
                     
-                <div class = "profiles-arrow"  onClick= "profilePairsShift();">
+                <div class = "profiles-arrow">
                   <i class="fa fa-arrow-right"></i>
                 </div>
             
@@ -576,8 +576,15 @@
         <div class = "test parallax-bg">
         
         </div>
-
+        
+        <div id = "cover" class = "hide">
+              
+        
+        </div>
+      
                 <section class = "container">
+                    
+  
 
                         <h2><a name="gallery">What we've done</a></h2>
                         <p class = "intro darkgreen-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ultricies quam non mi fringilla, eu iaculis neque dictum.</p>
@@ -596,19 +603,34 @@
                 </section>
         
         <section class = "gallery-section">
-        
-                <div class = "gallery">
+                            
+                      
                 
-                    <div class = "cell invis-md"> 
-                        <img src ="images/image1.jpg"/>
-                            <div class = "caption">
-                                <h5>A heading! What a great idea</h5>
-                                <p>Yeah, a description is good too</p>
-                            </div>
-                    </div>
-
+            <div class = "gallery">
+                
+                  <div id = "lightbox" class = "hide">      
+                    
+                    <img id = "lightbox-image"/>
+                    
+                    <i class="fa fa-times"></i>
+                </div>
+                    
+                    
+                            <div class = "cell invis-md">
+                                <div class = "wrapper">
+                                </div>
+                                <img src ="images/image1.jpg"/>
+                                <div class = "caption">
+                                    <h5>A heading! What a great idea</h5>
+                                    <p>Yeah, a description is good too</p>
+                                </div>
+                            </div>                      
+                    
+                    
                     <div class = "cell">
-                         <img src ="images/image2.jpg"/>
+                        <div class = "wrapper">                    
+                        </div>
+                            <img src ="images/image2.jpg"/>
                             <div class = "caption">
                                 <h5>Wow, this is great</h5>
                                 <p>Something interesting this</p>
@@ -616,6 +638,8 @@
                     </div>
 
                     <div class = "cell">
+                        <div class = "wrapper">                    
+                        </div>
                         <img src ="images/image3.jpg"/>
                             <div class = "caption">
                                 <h5>And this one</h5>
@@ -624,6 +648,8 @@
                     </div>
 
                     <div class = "cell">
+                        <div class = "wrapper">                    
+                        </div>
                         <img src ="images/image4.jpg"/>
                             <div class = "caption">
                                 <h5>Another great heading</h5>
@@ -632,6 +658,8 @@
                     </div>
 
                     <div class = "cell">
+                        <div class = "wrapper">                    
+                        </div>
                          <img src ="images/image5.jpg"/>
                             <div class = "caption">
                                 <h5>This one was awesome</h5>
@@ -640,6 +668,8 @@
                     </div>
 
                     <div class = "cell invis-md">
+                        <div class = "wrapper">                    
+                        </div>
                          <img src ="images/image6.jpg"/>
                             <div class = "caption">
                                 <h5>Check this out</h5>
@@ -648,6 +678,8 @@
                         </div>
 
                     <div class = "cell  invis-md hide">
+                        <div class = "wrapper">                    
+                        </div>
                          <img src ="images/image7.jpg"/>
                         <div class = "caption">
                             <h5>Oops!</h5>
@@ -656,6 +688,8 @@
                     </div>
 
                     <div class = "cell hide">
+                        <div class = "wrapper">                    
+                        </div>
                          <img src ="images/image8.png"/>
                             <div class = "caption">
                                 <h5>This is another on</h5>
@@ -664,6 +698,8 @@
                     </div>
 
                     <div class = "cell hide">
+                        <div class = "wrapper">                    
+                        </div>
                          <img src ="images/image9.jpg"/>
                             <div class = "caption">
                                 <h5>Practicing practicing</h5>
@@ -672,6 +708,8 @@
                     </div>
 
                     <div class = "cell hide">
+                        <div class = "wrapper">                    
+                        </div>
                          <img src ="images/image11.jpg"/>
                             <div class = "caption">
                                 <h5>Are we there yet</h5>
@@ -680,6 +718,8 @@
                     </div>
                     
                     <div class = "cell hide">
+                        <div class = "wrapper">                    
+                        </div>
                         <img src ="images/image12.jpg"/>
                             <div class = "caption">
                                 <h5>This is great</h5>
@@ -688,6 +728,8 @@
                     </div>
                     
                     <div class = "cell invis-md hide">
+                        <div class = "wrapper">                    
+                        </div>
                         <img src ="images/image2.jpg"/>
                             <div class = "caption">
                                 <h5>Wow, last one</h5>
@@ -835,7 +877,7 @@
                 <li>
                     <label for="message">Message: <span class="required">*</span></label>
                     </li>
-                    <li><textarea id="message" input type = "text" name="message" placeholder="Your message must be greater than 20 charcters" required="required" data-minlength="20"></textarea>
+                    <li><textarea id="message" input type = "text" name="message" placeholder = "Your message must be greater than 20 charcters (please)" required="required" data-minlength="20"></textarea>
          
                 
                 </li>
@@ -844,10 +886,8 @@
                 <li>
                     <input type = "submit" id = "register-submit" class = "button-green" value = "Send Post Haste">
                 </li>
-                
-
-
             </ul>
+            
             </section>
     
     </form>
